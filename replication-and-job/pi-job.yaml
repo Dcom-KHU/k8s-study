@@ -1,0 +1,21 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: calc-pi
+spec:
+  completions: 5
+  parallelism: 2
+  backoffLimit: 4
+  activeDeadlineSeconds: 200
+  ttlSecondsAfterFinished: 100
+  template:
+    metadata:
+      labels:
+        name: calc-pi
+    spec:
+      restartPolicy: Never
+      activeDeadlineSeconds: 50
+      containers:
+        - name: pi
+          image: perl:5.34.0
+          command: ["perl", "-Mbignum=bpi", "-wle", "print bpi(2000)"]
