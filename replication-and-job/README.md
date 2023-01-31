@@ -29,37 +29,37 @@ $ kubectl get rs,pod --show-labels
 $ kubectl delete pod hello-go-rs-xxxxx
 ```
 
-###Pod의 spec 수정하기
+### Pod의 spec 수정하기
 
 ```bash
 $ kubectl edit pod hello-go-rs-xxxxx
 ```
 
-###Pod의 label 추가하기
+### Pod의 label 추가하기
 
 ```bash
 $ kubectl label pod hello-go-rs-xxxxx name=hello-go
 ```
 
-###Pod의 label 수정하기
+### Pod의 label 수정하기
 
 ```bash
 $ kubectl label pod hello-go-rs-xxxxx app=hello --overwrite
 ```
 
-###Replica Set이 유지할 복제본 개수 바꾸기
+### Replica Set이 유지할 복제본 개수 바꾸기
 
 ```bash
 $ kubectl scale rs hello-go-rs --replicas=5
 ```
 
-###Pod는 남겨두고 Replica Set만 삭제하기
+### Pod는 남겨두고 Replica Set만 삭제하기
 
 ```bash
 $ kubectl delete rs hello-go-rs --cascade=orphan
 ```
 
-###Replica Set과 Replica Set이 관리하는 Pod 모두 삭제하기
+### Replica Set과 Replica Set이 관리하는 Pod 모두 삭제하기
 
 ```bash
 $ kubectl delete rs hello-go-rs
