@@ -1,0 +1,4 @@
+apiVersion: v1
+kind: Namespace # ns 정의
+metadata:
+  name: custom-namespace # 사용할 이름
