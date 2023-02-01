@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: hello-go-rs
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: go
+    spec:
+      containers:
+        - image: hello-go:1.0
+          name: hello-go
+          ports:
+            - containerPort: 8000
+  selector:
+    matchLabels:
+      app: go

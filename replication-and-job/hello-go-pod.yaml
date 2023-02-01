@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hello-go-pod
+  labels:
+    app: go
+spec:
+  containers:
+    - image: hello-go:1.0
+      name: hello-go
+      ports:
+        - containerPort: 8000
+      livenessProbe:
+        httpGet:
+          path: /
+          port: 8000
+        initialDelaySeconds: 10
+        periodSeconds: 3
