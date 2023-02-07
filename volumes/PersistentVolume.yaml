@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv-hostpath
+spec:
+  capacity:
+    storage: 2Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: manual
+  persistentVolumeReclaimPolicy: Retain
+  hostPath:
+    # 윈도우(wsl) 한정 /run/desktop/mnt/host 앞에 붙어야함
+    path: /run/desktop/mnt/host/c/Users/lomayd/Desktop

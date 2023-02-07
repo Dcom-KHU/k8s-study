@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hostpath-pod
+spec:
+  containers:
+    - name: redis
+      image: redis
+      volumeMounts:
+        - name: hostpath-volume
+          mountPath: /hostpath
+  volumes:
+    - name : hostpath-volume
+      hostPath:
+        # 윈도우(wsl) 한정 /run/desktop/mnt/host 앞에 붙어야함
+        path:  /run/desktop/mnt/host/c/Users/lomayd/Desktop
+        type: Directory
